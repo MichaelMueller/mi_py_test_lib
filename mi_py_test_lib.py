@@ -1,5 +1,5 @@
 import asyncio
-from lib.tests.SelfTest import SelfTest
+from mi_py_test_lib.tests.SelfTest import SelfTest
 
 async def main():
     await SelfTest().exec()
