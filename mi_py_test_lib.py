@@ -1,5 +1,13 @@
+import os
+import sys
 import asyncio
-from mi_py_test_lib.test.Self import Self as SelfTest
+
+# Set the current file's parent directory in the system path
+project_dir = os.path.dirname( os.path.dirname( os.path.abspath(__file__) ) )
+if not project_dir in sys.path:
+    sys.path.insert(0, project_dir)
+
+from mi_py_test_lib.tests.Self import Self as SelfTest
 
 async def main():
     await SelfTest().exec()
