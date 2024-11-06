@@ -7,7 +7,7 @@ project_dir = os.path.dirname( os.path.dirname( os.path.abspath(__file__) ) )
 if not project_dir in sys.path:
     sys.path.insert(0, project_dir)
 
-from mi_py_test_lib.tests.Self import Self as SelfTest
+from SelfTest import SelfTest as SelfTest
 
 async def main():
     await SelfTest().exec()

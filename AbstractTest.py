@@ -1,6 +1,6 @@
-from ..interface.Test import Test as TestInterface
+from mi_py_test_lib.Test import Test
 
-class Test (TestInterface):
+class AbstractTest (Test):
     
     async def exec(self) -> None:        
         await self._exec()
