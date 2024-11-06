@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 # Utility function to read the requirements.txt file
 def parse_requirements(filename):
     with open(filename, "r") as file:
-        return file.read().splitlines()
+        return [line.strip() for line in file if line and not line.startswith('#')]
 
 setup(
     name='mi_py_test',               # Replace with your package's name
