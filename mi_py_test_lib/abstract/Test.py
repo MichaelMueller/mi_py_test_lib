@@ -1,4 +1,4 @@
-from ..interfaces.Test import Test as TestInterface
+from ..interface.Test import Test as TestInterface
 
 class Test (TestInterface):
     
