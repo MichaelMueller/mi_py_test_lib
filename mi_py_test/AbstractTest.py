@@ -14,8 +14,12 @@ class AbstractTest (Test):
     def _assert( self, condition:bool, assertion_description:str ):
         if not condition:
             raise AssertionError( f'{self.__class__.__name__} - Assertion FAILED: {assertion_description}' )
+        else:
+            print(f'{self.__class__.__name__} - Assertion PASSED: {assertion_description}')
     
-    def _check( self, condition:bool, assertion_description:str ):
+    def _check( self, condition:bool, check_description:str ):
         if not condition:
-            logging.warning( f'{self.__class__.__name__} - Check FAILED: {assertion_description}' )
+            print( f'{self.__class__.__name__} - Check FAILED: {check_description}' )
+        else:
+            print(f'{self.__class__.__name__} - Check PASSED: {check_description}')
         
