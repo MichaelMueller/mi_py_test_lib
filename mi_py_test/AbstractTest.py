@@ -1,5 +1,5 @@
 import logging
-from mi_py_test_lib.Test import Test
+from .Test import Test
 
 class AbstractTest (Test):
     def __init__(self) -> None:

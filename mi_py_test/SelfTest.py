@@ -1,4 +1,4 @@
-from mi_py_test_lib.AbstractTest import AbstractTest
+from .AbstractTest import AbstractTest
 
 class SelfTest(AbstractTest):
     
