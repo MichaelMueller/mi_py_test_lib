@@ -1,4 +1,4 @@
-from ..abstract.Test import Test as AbstractTest
+from ..abstracts.Test import Test as AbstractTest
 
 class SelfTest(AbstractTest):
     
