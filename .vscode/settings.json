@@ -1,8 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "/mnt/c/Users/mueller/git"
-    ],
-    "python.autoComplete.extraPaths": [
-        "/mnt/c/Users/mueller/git"
-    ]
-}
