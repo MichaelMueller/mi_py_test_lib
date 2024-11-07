@@ -1,5 +1,7 @@
+from typing import Any
 import logging
 import traceback
+
 from .Test import Test
 
 class AbstractTest (Test):
@@ -10,12 +12,11 @@ class AbstractTest (Test):
         return []
         
     async def exec(self) -> bool:        
+        print( f'****** {self.__class__.__name__} - STARTING' )
         for t in self.dependent_tests():
             if not await t.exec():
                 print( f'****** {self.__class__.__name__} - FAILED dependent test {t.__class__.__name__}' )
-                return False
-                
-        print( f'****** {self.__class__.__name__} - STARTING' )
+                return False                
         try:
             await self._tidy_up_if_needed()
             await self._exec()            
@@ -25,7 +26,7 @@ class AbstractTest (Test):
         except Exception as e:
             # Catch all exceptions and print the stack trace
             traceback.print_exc()
-            print( f'****** {self.__class__.__name__} - FAILED with exception: {e}' )
+            print( f'****** {self.__class__.__name__} - FAILED with exception (see trace above)' )
             return False
     
     async def _tidy_up_if_needed(self) -> None:
@@ -33,8 +34,8 @@ class AbstractTest (Test):
     
     async def _exec(self):
         raise NotImplementedError()
-    
-    def _assert( self, condition:bool, assertion_description:str ):
+        
+    def _assert( self, condition:bool, assertion_description:str ) -> None:
         if not condition:
             raise AssertionError( f'{assertion_description}' )
         else:
