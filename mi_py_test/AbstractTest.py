@@ -14,17 +14,22 @@ class AbstractTest (Test):
             if not await t.exec():
                 print( f'****** {self.__class__.__name__} - FAILED dependent test {t.__class__.__name__}' )
                 return False
-            
+                
         print( f'****** {self.__class__.__name__} - STARTING' )
         try:
+            await self._tidy_up_if_needed()
             await self._exec()            
-            print( f'****** {self.__class__.__name__} - PASSED' )
+            await self._tidy_up_if_needed()
+            print( f'****** {self.__class__.__name__} - PASSED' )            
             return True
         except Exception as e:
             # Catch all exceptions and print the stack trace
             traceback.print_exc()
             print( f'****** {self.__class__.__name__} - FAILED with exception: {e}' )
             return False
+    
+    async def _tidy_up_if_needed(self) -> None:
+        pass
     
     async def _exec(self):
         raise NotImplementedError()

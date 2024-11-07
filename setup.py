@@ -7,7 +7,7 @@ def parse_requirements(filename):
 
 setup(
     name='mi_py_test',               # Replace with your package's name
-    version='0.1.2',
+    version='0.1.3',
     packages=find_packages(),        # Automatically find sub
     install_requires=parse_requirements('requirements.txt'),
     author='Michael Mueller',
